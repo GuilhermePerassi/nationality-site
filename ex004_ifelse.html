@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+
+    <style>
+        h1#tnac {
+            font-size: 40pt;
+            color: greenyellow;
+            text-align: center;
+            margin-top: auto;
+            
+        }
+
+        div#dnac{
+            background-color: blueviolet;
+            height: 520pt;
+        }
+
+        div#resultado {
+            font-size: 20pt;
+            margin-left: 370pt;
+            font: white-space;
+            margin-top: 50pt;
+            color: white;
+        }
+
+        img#logoMundo {
+            margin-left: 0pt;
+            margin-top: 30pt;
+            vertical-align: -25pt;
+        }
+
+        input[type="text"] {
+            margin-left: 400pt;
+            font-size: 20pt;
+        }
+
+        input[type="button"] {
+            margin-left: 420pt;
+            font-size: 20pt;
+            margin-top: 10pt;
+            margin-left: 5pt;
+            color: white;
+            background-color: orange;
+            border-color: 0px 2px 2px 0px rgb(58, 58, 58);
+        }
+
+            .logoBrasil {
+                margin-left: 10pt;
+         }
+    </style>
+</head>
+<body>
+    <div id="dnac">
+        <h1 id="tnac">
+            Nacionalidade&nbsp; <img src="_imagens/world.png" id="logoMundo"> 
+        </h1>
+        <input type="text" id="txtnac">
+        <input type="button" value="Verificar" onclick="verificar()">
+        <div id="resultado"></div>
+    </div>
+    
+
+    <script>
+        function verificar() {
+            var txtnac = document.querySelector('input#txtnac').value
+            var resultado = document.querySelector('div#resultado')
+            resultado.innerHTML = `Você nasceu no(a) ${txtnac}`
+
+            if(txtnac == 'Brasil' || txtnac == 'brasil') {
+                resultado.innerHTML += `. Sua naionalidade é brasileira` 
+                var imgBrasil = document.createElement('img');
+            imgBrasil.src = "_imagens/brasil.png";
+            imgBrasil.classList.add('logoBrasil');
+            imgBrasil.style.position = 'relative';
+            imgBrasil.style.left = '3pt';
+            imgBrasil.style.top = '11pt';
+            resultado.appendChild(imgBrasil);
+            } else {
+                resultado.innerHTML += `. Sua naionalidade é estrangeira`
+                var imgMundo = document.createElement('img');
+            imgMundo.src = "_imagens/world2.png";
+            imgMundo.classList.add('logoMundo');
+            imgMundo.style.position = 'relative';
+            imgMundo.style.left = '5pt';
+            imgMundo.style.top = '11pt';
+            resultado.appendChild(imgMundo);
+            }
+        }
+    </script>
+</body>
+</html>
